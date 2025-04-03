@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  frontend-prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      #args:
+      #  - VITE_APP_BACKEND_ADDRESS=https://localhost/api/prod
+    container_name: frontend-prod
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - network
+networks:
+  network:
